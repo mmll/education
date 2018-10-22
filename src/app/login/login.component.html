@@ -1,0 +1,19 @@
+<div class="content">
+  <h4>Create an account</h4>
+  <form class="login-form" #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)">
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Username" type="text" id="username" ngModel name="username" required>
+    </mat-form-field>
+    <div *ngIf="submitted && !registerForm.value.username" class ='error-message'> Username is required</div>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Email" type="email" id="email" ngModel name="email" required>
+    </mat-form-field>
+    <div *ngIf="submitted && !registerForm.value.email" class ='error-message'> Email is required</div>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Password" type="password" id="password" ngModel name="password" required>
+    </mat-form-field>
+    <div *ngIf="submitted && !registerForm.value.password" class ='error-message'> Password is required</div>
+    <br>
+    <button mat-button class="" >Submit</button>
+  </form>
+</div>
