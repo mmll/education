@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { FormComponent } from './form/form.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { LoginComponent } from './login/login.component';
-import { FormsModule }   from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,7 +18,7 @@ import { FormsModule }   from '@angular/forms';
     BrowserModule,
     MyOwnCustomMaterialModule,
     AppRoutingModule,
-    FormsModule
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
