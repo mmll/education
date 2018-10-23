@@ -12,7 +12,7 @@
     </mat-form-field>
     <div *ngIf="submitted && f.email.errors" class ='error-message'>
       <div *ngIf="f.email.errors.required"> Email is required</div>
-      <div *ngIf="f.email.errors.email"> Email is invalidated</div>
+      <div *ngIf="f.email.errors.email"> Email is invalid</div>
     </div>
     <mat-form-field class="example-full-width">
       <input matInput placeholder="Password" type="password" id="password" formControlName="password" autocomplete="off">

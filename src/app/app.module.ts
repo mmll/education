@@ -3,24 +3,29 @@ import { NgModule } from '@angular/core';
 import { MyOwnCustomMaterialModule } from './materialModule'
 
 import { AppComponent } from './app.component';
-import { FormComponent } from './form/form.component';
 import { AppRoutingModule } from './/app-routing.module';
-import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AlertComponent } from './alert/alert.component';
+import { fakeBackendProvider } from './helpers/fake-backend-interceptor';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FormComponent,
-    LoginComponent
+    RegisterComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,
     MyOwnCustomMaterialModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [
+    fakeBackendProvider
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

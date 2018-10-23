@@ -1,23 +1,21 @@
 import {Component, OnInit} from '@angular/core';
-import {User} from '../entity/user';
 import {FormBuilder, FormControl, FormGroup, Validators, ReactiveFormsModule} from '@angular/forms';
 import {validate} from 'codelyzer/walkerFactory/walkerFn';
+import {AlertService} from '../service/alert.service';
 import {UserService} from '../service/user.service';
 import {first} from 'rxjs/operators';
 
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  selector: 'app-register',
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.css']
 })
-export class LoginComponent implements OnInit {
+export class RegisterComponent implements OnInit {
   submitted = false;
   registerForm;
-  userService;
-  email;
 
-  constructor(formBuilder: FormBuilder, userService: UserService) {
+  constructor(private formBuilder: FormBuilder, private userService: UserService, private alertService: AlertService) {
     this.registerForm = formBuilder.group({
       username: new FormControl('', Validators.compose([Validators.required])),
       email: new FormControl('', Validators.compose([Validators.required, Validators.email])),
@@ -34,17 +32,17 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-    this.userService.register(this.registerForm.value)
-      .pipe(first())
-      .subscribe(
-        data => {
-          this.alertService.success('Registration successful', true);
-          this.router.navigate(['/login']);
-        },
-        error => {
-          this.alertService.error(error);
-          this.loading = false;
-        });
+    // this.userService.register(this.registerForm.value)
+    //   .pipe(first())
+    //   .subscribe(
+    //     data => {
+    //       this.alertService.success('Registration successful', true);
+    //       //this.router.navigate(['/register']);
+    //     },
+    //     error => {
+    //       this.alertService.error(error);
+    //       //this.loading = false;
+    //     });
   }
 
 }
