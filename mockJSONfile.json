@@ -1,0 +1,43 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Andy"
+    },
+    {
+      "id": 2,
+      "name": "Lisa"
+    },
+    {
+      "username": "hello",
+      "email": "test!@em.com",
+      "password": "12345",
+      "id": 3
+    },
+    {
+      "username": "hello",
+      "email": "test!@em.com",
+      "password": "12345",
+      "id": 4
+    },
+    {
+      "username": "hello",
+      "email": "test!@em.com",
+      "password": "12345",
+      "id": 5
+    },
+    {
+      "authenticate": {
+        "user": {
+          "token": true
+        }
+      }
+    },
+    {
+      "username": "testing",
+      "email": "aemc.com@e.com",
+      "password": "123456",
+      "id": 6
+    }
+  ]
+}

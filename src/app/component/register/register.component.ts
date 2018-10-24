@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators, ReactiveFormsModule} from '@angular/forms';
 import {validate} from 'codelyzer/walkerFactory/walkerFn';
-import {AlertService} from '../service/alert.service';
-import {UserService} from '../service/user.service';
+import {AlertService} from '../../service/alert.service';
+import {UserService} from '../../service/user.service';
 import {first} from 'rxjs/operators';
 
 
@@ -32,17 +32,20 @@ export class RegisterComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-    // this.userService.register(this.registerForm.value)
-    //   .pipe(first())
-    //   .subscribe(
-    //     data => {
-    //       this.alertService.success('Registration successful', true);
-    //       //this.router.navigate(['/register']);
-    //     },
-    //     error => {
-    //       this.alertService.error(error);
-    //       //this.loading = false;
-    //     });
+    if(this.registerForm.invalid){
+      return false;
+    }
+    this.userService.register(this.registerForm.value)
+      .pipe(first())
+      .subscribe(
+        data => {
+          this.alertService.success('Registration successful', true);
+          //this.router.navigate(['/register']);
+        },
+        error => {
+          this.alertService.error(error);
+          //this.loading = false;
+        });
   }
 
 }
